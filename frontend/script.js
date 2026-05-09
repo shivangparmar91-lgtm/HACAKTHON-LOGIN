@@ -1,6 +1,6 @@
 // API Base URL
 // Change this to your deployed backend URL when deploying
-const API_URL = 'https://login-form-uqg4.onrender.com/api';
+const API_URL = 'https://final-commit.onrender.com/api';
 
 // Helper function to show alerts (could be improved with a custom modal)
 function showAlert(message, type = 'info') {
