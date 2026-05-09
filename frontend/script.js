@@ -1,6 +1,6 @@
 // API Base URL
 // Change this to your deployed backend URL when deploying
-const API_URL = 'https://final-commit.onrender.com/api';
+const API_URL = 'https://hacakthon-login.onrender.com/api';
 
 // Helper function to show alerts (could be improved with a custom modal)
 function showAlert(message, type = 'info') {
@@ -10,9 +10,9 @@ function showAlert(message, type = 'info') {
 // Check authentication on protected pages
 function checkAuth() {
   const token = localStorage.getItem('token');
-  const isAuthPage = window.location.pathname.includes('login.html') || 
-                     window.location.pathname.includes('index.html') ||
-                     window.location.pathname === '/';
+  const isAuthPage = window.location.pathname.includes('login.html') ||
+    window.location.pathname.includes('index.html') ||
+    window.location.pathname === '/';
 
   if (!token && !isAuthPage) {
     // Not logged in and trying to access protected page
@@ -33,7 +33,7 @@ const registerForm = document.getElementById('registerForm');
 if (registerForm) {
   registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -76,7 +76,7 @@ const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const submitBtn = document.getElementById('submitBtn');
@@ -98,7 +98,7 @@ if (loginForm) {
         // Save token and user info to localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        
+
         window.location.href = 'dashboard.html';
       } else {
         showAlert(data.message || 'Login failed', 'error');
@@ -140,7 +140,7 @@ if (taskListContainer) {
   async function loadTasks() {
     const token = localStorage.getItem('token');
     const statusMsg = document.getElementById('taskStatusMsg');
-    
+
     try {
       const response = await fetch(`${API_URL}/tasks`, {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -181,7 +181,7 @@ if (taskListContainer) {
     tasks.forEach(task => {
       const taskEl = document.createElement('div');
       taskEl.className = `task-item ${task.completed ? 'completed' : ''}`;
-      
+
       taskEl.innerHTML = `
         <div class="task-info">
           <div class="task-checkbox ${task.completed ? 'checked' : ''}" onclick="toggleTask(${task.id}, ${task.completed})">
@@ -198,7 +198,7 @@ if (taskListContainer) {
           </button>
         </div>
       `;
-      
+
       taskListContainer.appendChild(taskEl);
     });
   }
@@ -218,7 +218,7 @@ if (taskListContainer) {
   const addTaskForm = document.getElementById('addTaskForm');
   addTaskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const title = document.getElementById('taskTitle').value;
     const description = document.getElementById('taskDesc').value;
     const token = localStorage.getItem('token');
@@ -230,7 +230,7 @@ if (taskListContainer) {
     try {
       const response = await fetch(`${API_URL}/tasks`, {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
@@ -259,7 +259,7 @@ if (taskListContainer) {
     try {
       const response = await fetch(`${API_URL}/tasks/${id}`, {
         method: 'PUT',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
@@ -277,7 +277,7 @@ if (taskListContainer) {
   // Delete Task (Global scope for onclick)
   window.deleteTask = async (id) => {
     if (!confirm('Are you sure you want to delete this task?')) return;
-    
+
     const token = localStorage.getItem('token');
     try {
       const response = await fetch(`${API_URL}/tasks/${id}`, {
