@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hackathon Project - Dashboard">
+  <title>Dashboard | Hackathon Project</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="logo">
+          <i class="fas fa-bolt"></i> <span>HACKATHON</span>
+        </div>
+        <ul class="nav-links">
+          <li class="active"><a href="#"><i class="fas fa-chart-pie"></i> <span>Dashboard</span></a></li>
+          <li><a href="#"><i class="fas fa-tasks"></i> <span>Tasks</span></a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="user-profile">
+        <div class="avatar" id="userAvatar">U</div>
+        <div class="user-info">
+          <h4 id="usernameDisplay">User Name</h4>
+          <p id="userEmailDisplay">user@example.com</p>
+        </div>
+        <a href="#" id="logoutBtn" style="margin-left: auto; color: var(--text-secondary);" title="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header-action">
+        <div class="welcome-msg">
+          <h1>Welcome back, <span id="welcomeName">User</span>!</h1>
+          <p>Here's what's happening with your projects today.</p>
+        </div>
+        <div>
+          <!-- Optional: Search or notifications can go here -->
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card glass">
+          <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3 id="totalTasksCount">0</h3>
+          <p>Total Tasks</p>
+        </div>
+        <div class="stat-card glass">
+          <div class="icon" style="color: var(--success);"><i class="fas fa-check-circle"></i></div>
+          <h3 id="completedTasksCount">0</h3>
+          <p>Completed Tasks</p>
+        </div>
+        <div class="stat-card glass">
+          <div class="icon" style="color: var(--danger);"><i class="fas fa-clock"></i></div>
+          <h3 id="pendingTasksCount">0</h3>
+          <p>Pending Tasks</p>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+        <!-- Task List Section -->
+        <div class="section-card glass">
+          <div class="section-header">
+            <h2>Your Tasks</h2>
+            <div style="font-size: 0.9rem; color: var(--text-secondary);" id="taskStatusMsg">Loading tasks...</div>
+          </div>
+          
+          <div class="task-list" id="taskList">
+            <!-- Tasks will be injected here by JS -->
+            <div style="text-align: center; color: var(--text-secondary); padding: 20px;">
+              No tasks found. Add one on the right!
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Task Section -->
+        <div class="section-card glass" style="height: fit-content;">
+          <div class="section-header">
+            <h2>Add New Task</h2>
+          </div>
+          
+          <form class="add-task-form" id="addTaskForm">
+            <div class="form-group">
+              <label for="taskTitle">TASK TITLE</label>
+              <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="taskDesc">DESCRIPTION (OPTIONAL)</label>
+              <input type="text" id="taskDesc" placeholder="Add more details...">
+            </div>
+            
+            <button type="submit" class="btn" id="addTaskBtn">
+              <span>Add Task</span> <i class="fas fa-plus"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hackathon Project - Secure Registration">
+  <title>Sign Up | Hackathon Project</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <div class="auth-card glass">
+      <div class="auth-header">
+        <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+          <i class="fas fa-bolt"></i> <span>HACKATHON</span>
+        </div>
+        <h1>Create Account</h1>
+        <p>Join us to start managing your tasks efficiently</p>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="username">USERNAME</label>
+          <div class="input-wrapper">
+            <input type="text" id="username" placeholder="Enter your username" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">EMAIL ADDRESS</label>
+          <div class="input-wrapper">
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">PASSWORD</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" placeholder="Create a strong password" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">
+          <span>Sign Up</span> <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Sign In</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

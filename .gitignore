@@ -1,0 +1,6 @@
+# Ignore node_modules (thousands of files that shouldn't be on GitHub)
+node_modules/
+
+# Ignore environment variables (contains database passwords and secrets)
+.env
+backend/.env
